@@ -1,16 +1,11 @@
 package com.example.song.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 
 @Entity
 @Table(name = "playlist")
 public class Song{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="songid")
@@ -25,10 +20,18 @@ public class Song{
     @Column(name="singer")
     private String singer;
 
-    @Column(name="musicDirector")
+    @Column(name="musicdirector")
     private String musicDirector; 
 
-    public Song(){}
+    public Song() {}
+
+    public Song(int songId, String songName, String lyricist, String singer, String musicDirector) {
+        this.songId = songId;
+        this.songName = songName;
+        this.lyricist = lyricist;
+        this.singer = singer;
+        this.musicDirector = musicDirector;
+    }
 
     public int getSongId(){
         return songId;
